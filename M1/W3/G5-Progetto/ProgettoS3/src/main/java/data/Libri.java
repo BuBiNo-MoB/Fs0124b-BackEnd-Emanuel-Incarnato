@@ -11,12 +11,13 @@ public class Libri extends Catalogo {
     private String genere;
 
 
-    public Libri( String titolo, Integer annoPubblicazione, Integer numeroPagine,String autore, String genere) {
+    public Libri(String titolo, Integer annoPubblicazione, Integer numeroPagine, String autore, String genere) {
         super(titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;
     }
-    public Libri () {
+
+    public Libri() {
 
     }
 
@@ -39,7 +40,8 @@ public class Libri extends Catalogo {
     @Override
     public String toString() {
         return "Libri{" +
-                "autore='" + autore + '\'' +
+                "titolo='" + getTitolo() + '\'' +
+                ", autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
                 '}';
     }

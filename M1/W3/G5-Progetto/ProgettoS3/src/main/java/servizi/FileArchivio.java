@@ -93,7 +93,7 @@ public class FileArchivio implements Archivio {
     @Override
     public List<Catalogo> getByTitolo(String titolo) {
         try {
-            var query = em.createQuery("SELECT c FROM Catalogo c WHERE c.titolo LIKE CONCAT('%', :titolo, '%')", Catalogo.class);
+            var query = em.createNamedQuery("GET_TITOLO", Catalogo.class);
             query.setParameter("titolo", titolo);
             List<Catalogo> result = query.getResultList();
             return result;

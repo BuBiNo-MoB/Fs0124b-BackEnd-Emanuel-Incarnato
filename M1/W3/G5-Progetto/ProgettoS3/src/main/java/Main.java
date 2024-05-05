@@ -21,6 +21,6 @@ public class Main {
         //FileArchivio.save(libri5);
         //FileArchivio.deleteISBN(2);
         //FileArchivio.deleteISBN(3);
-        System.out.println(FileArchivio.getByAutore("George Orwell"));
+        System.out.println(FileArchivio.getByTitolo("Harry"));
     }
 }
