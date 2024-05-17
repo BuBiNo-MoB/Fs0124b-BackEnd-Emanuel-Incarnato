@@ -9,8 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.List;
 
-@Repository
-public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
-    List<Reservation> findByUserAndDate (User user, LocalDate date);
-    boolean existsByWorkstationAndDate(Workstation workstation, LocalDate date);
+
+public interface ReservationRepository extends JpaRepository<Reservation, Long> {
+    List<Reservation> findByUserAndDateReservation (User user, LocalDate dateReservation);
+    boolean existsByWorkstationAndDateReservation(Workstation workstation, LocalDate dateReservation);
+    boolean existsByUserAndDateReservation(User user, LocalDate dateReservation);
 }

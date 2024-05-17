@@ -1,0 +1,14 @@
+com/epicode/progettoS5_L5/repository/ReservationRepository.class
+com/epicode/progettoS5_L5/data/Reservation$ReservationBuilder.class
+com/epicode/progettoS5_L5/data/Type.class
+com/epicode/progettoS5_L5/data/Building.class
+com/epicode/progettoS5_L5/service/UserService.class
+com/epicode/progettoS5_L5/data/Workstation.class
+com/epicode/progettoS5_L5/data/User.class
+com/epicode/progettoS5_L5/data/Workstation$WorkstationBuilder.class
+com/epicode/progettoS5_L5/repository/UserRepository.class
+com/epicode/progettoS5_L5/service/ReservationService.class
+com/epicode/progettoS5_L5/data/Building$BuildingBuilder.class
+com/epicode/progettoS5_L5/data/User$UserBuilder.class
+com/epicode/progettoS5_L5/repository/WorkstationRepository.class
+com/epicode/progettoS5_L5/data/Reservation.class

@@ -28,5 +28,6 @@ public class Reservation {
     @JoinColumn(name = "workstation_id")
     private Workstation workstation;
 
-    private LocalDate date;
+    @Column(name = "date_reservation")
+    private LocalDate dateReservation ;
 }
