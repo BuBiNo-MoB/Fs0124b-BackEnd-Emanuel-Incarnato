@@ -17,11 +17,11 @@ public class ExceptionsHandler {
 
 	@ExceptionHandler(BadRequestException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ErrorsPayloadWithList handleBadRequest(BadRequestException e) {
+	public ErrorsPayload handleBadRequest(BadRequestException e) {
 		List<String> errorsMessages = new ArrayList<>();
 		if (e.getErrorsList() != null)
 			errorsMessages = e.getErrorsList().stream().map(err -> err.getDefaultMessage()).toList();
-		return new ErrorsPayloadWithList(e.getMessage(), new Date(), errorsMessages);
+		return new ErrorsPayload(e.getMessage(), LocalDateTime.now());
 	}
 
 	@ExceptionHandler(NotFoundException.class)

@@ -1,11 +1,12 @@
 package it.epicode.progettoS6L5.exceptions;
 
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.validation.ObjectError;
 
 import java.util.List;
 
-@Getter
+@Data
 public class BadRequestException extends RuntimeException {
 	private List<ObjectError> errorsList;
 
