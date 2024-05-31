@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class RoleEntity extends BaseEntity{
 
-    private String roleName;
+    private String name;
 
     @ManyToMany(mappedBy = "users")
     private final List<UserEntity> users = new ArrayList<>();
