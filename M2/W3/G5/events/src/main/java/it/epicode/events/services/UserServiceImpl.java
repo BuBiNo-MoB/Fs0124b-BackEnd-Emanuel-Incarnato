@@ -6,14 +6,20 @@ import it.epicode.events.dto.RegisterUserDto;
 import it.epicode.events.dto.RegisteredUserDto;
 import it.epicode.events.entities.RoleEntity;
 import it.epicode.events.entities.UserEntity;
+import it.epicode.events.exceptions.InvalidLoginException;
+import it.epicode.events.exceptions.PersistEntityException;
 import it.epicode.events.repositories.RoleRepository;
 import it.epicode.events.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,6 +38,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private AuthenticationManager auth;
+
+    @Autowired
+    PasswordEncoder encoder;
 
     @Autowired
     Mapper<RegisterUserDto, UserEntity> mapEntity;
@@ -122,7 +131,6 @@ public class UserServiceImpl implements UserService {
             SecurityContextHolder.getContext().setAuthentication(a);
 
             var dto = mapLogin.map(userRepository.findOneByUsername(username).orElseThrow());
-            dto.setToken(jwt.generateToken(a));
             return Optional.of(dto);
         } catch (NoSuchElementException e) {
             log.error("User not found", e);

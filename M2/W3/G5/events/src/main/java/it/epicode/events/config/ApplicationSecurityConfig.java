@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class ApplicationSecurityConfig {
+
     @Bean
     PasswordEncoder stdPasswordEncoder() {
         return new BCryptPasswordEncoder(11);
